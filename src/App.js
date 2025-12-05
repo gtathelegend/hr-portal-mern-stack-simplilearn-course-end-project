@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 function App() {
+  const [page, setPage] = useState("login");
+  const [users, setUsers] = useState([]);
+
+  const handleSignup = (newUser) => {
+    setUsers([...users, newUser]);
+    alert("Registration Successful!");
+    setPage("login");
+  };
+
+  const handleLogin = (username, password) => {
+    const user = users.find(
+      (u) => u.username === username && u.password === password
+    );
+
+    if (user) {
+      alert("Login Successful!");
+      // Navigation will change later in Step 3
+    } else {
+      alert("Invalid username or password");
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {page === "login" && (
+        <Login onLogin={handleLogin} goToSignup={() => setPage("signup")} />
+      )}
+      {page === "signup" && (
+        <Signup onSignup={handleSignup} goToLogin={() => setPage("login")} />
+      )}
+    </>
   );
 }
 
