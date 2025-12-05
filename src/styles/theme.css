@@ -1,0 +1,114 @@
+/* ----------------------------------------
+   GLOBAL THEME VARIABLES
+---------------------------------------- */
+:root {
+  --primary-color: #0d6efd;
+  --secondary-color: #6610f2;
+  --danger-color: #dc3545;
+  --success-color: #198754;
+  --warning-color: #ffc107;
+  --light-bg: #f8f9fa;
+  --dark-bg: #212529;
+  --card-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+  --smooth-transition: 0.2s ease-in-out;
+}
+
+/* ----------------------------------------
+   GLOBAL PAGE STYLING
+---------------------------------------- */
+body {
+  background-color: var(--light-bg);
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Card improvements */
+.card {
+  border-radius: 10px !important;
+  transition: var(--smooth-transition);
+  box-shadow: var(--card-shadow);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* Headings */
+h3, h4, h5 {
+  font-weight: 600;
+}
+
+/* ----------------------------------------
+   NAVBAR STYLING
+---------------------------------------- */
+.navbar {
+  border-radius: 0 !important;
+}
+
+.navbar-brand {
+  font-weight: 700 !important;
+  letter-spacing: 0.5px;
+}
+
+/* ----------------------------------------
+   BUTTON ENHANCEMENTS
+---------------------------------------- */
+button, .btn {
+  transition: var(--smooth-transition);
+  font-weight: 500 !important;
+}
+
+button:hover, .btn:hover {
+  transform: scale(1.03);
+}
+
+/* ----------------------------------------
+   TABLE STYLING
+---------------------------------------- */
+.table {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table thead {
+  background-color: var(--dark-bg);
+  color: white;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ----------------------------------------
+   FORM INPUT STYLING
+---------------------------------------- */
+input, textarea, select {
+  border-radius: 8px !important;
+  border: 1px solid #ccc !important;
+  padding: 8px !important;
+  transition: var(--smooth-transition);
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.4) !important;
+}
+
+/* ----------------------------------------
+   SECTION TITLES
+---------------------------------------- */
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--dark-bg);
+}
+
+/* ----------------------------------------
+   DASHBOARD CARD NUMBERS
+---------------------------------------- */
+.dashboard-number {
+  font-size: 2.3rem;
+  font-weight: 700;
+}
