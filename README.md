@@ -1,6 +1,6 @@
 # HR Portal (MERN Stack)
 
-HR Portal frontend built with React as part of the Simplilearn MERN-stack course end project. This app provides employee self-service and HR leave management features.
+HR Portal frontend built with React as part of my Simplilearn MERN-stack course end project. This app provides employee self-service and HR leave management features.
 
 > Repository: https://github.com/gtathelegend/hr-portal-mern-stack-simplilearn-course-end-project
 
@@ -26,7 +26,7 @@ HR Portal frontend built with React as part of the Simplilearn MERN-stack course
 
 ## Overview
 
-This project is the **frontend** portion of an HR Portal built using **Create React App**. It offers basic HR and employee workflows like viewing employee details and managing leave requests. The UI is kept intentionally simple to focus on MERN-stack learning objectives.
+This project is the **frontend** portion of an HR Portal built using **Create React App**. It offers basic HR and employee workflows like viewing employee details and managing leave requests. 
 
 ## Features
 - Employee signup and login (forms and basic validation)
