@@ -5,17 +5,20 @@ function Signup({ onSignup, goToLogin }) {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("EMPLOYEE");
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const newUser = {
-      fullName,
-      email,
-      username,
-      password,
-      role: "EMPLOYEE",
-    };
+  fullName,
+  email,
+  username,
+  password,
+  role
+};
+
 
     onSignup(newUser);
   };
@@ -26,6 +29,20 @@ function Signup({ onSignup, goToLogin }) {
         <h3 className="text-center mb-3">Employee Registration</h3>
 
         <form onSubmit={handleSubmit}>
+
+            <div className="mb-3">
+                <label className="form-label">Select Role</label>
+                <select
+                    className="form-select"
+                    value={role}
+                    onChange={(e) => setRole(e.target.value)}
+                >
+                    <option value="EMPLOYEE">Employee</option>
+                    <option value="HR">HR</option>
+                </select>
+            </div>
+
+
           <div className="mb-3">
             <label className="form-label">Full Name</label>
             <input
