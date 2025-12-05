@@ -4,49 +4,41 @@ import Signup from "./components/Signup";
 import HRDashboard from "./components/HRDashboard";
 import EmployeeDashboard from "./components/EmployeeDashboard";
 
+import employeeData from "./data/employees.json"; // ← JSON Import
+
 function App() {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
   const [page, setPage] = useState("login");
 
-// EMPLOYEE STATE
-  const [employees, setEmployees] = useState([
-    { id: 1, name: "John Doe", email: "john@company.com", department: "IT" },
-    { id: 2, name: "Jane Smith", email: "jane@company.com", department: "Finance" }
-  ]);
+  // EMPLOYEE DATA FROM JSON
+  const [employees, setEmployees] = useState(employeeData);
 
-  // ADD EMPLOYEE FUNCTION
+  // ADD EMPLOYEE
   const handleAddEmployee = (newEmp) => {
-    setEmployees([...employees, newEmp]);
+    const updated = [...employees, newEmp];
+    setEmployees(updated);
   };
 
-
-  // REGISTER NEW USER
+  // SIGNUP
   const handleSignup = (newUser) => {
     setUsers([...users, newUser]);
     alert("Registration Successful!");
     setPage("login");
   };
 
-  // LOGIN EXISTING USER
+  // LOGIN
   const handleLogin = (username, password) => {
     const user = users.find(
       (u) => u.username === username && u.password === password
     );
 
-    if (!user) {
-      alert("Invalid username or password");
-      return;
-    }
+    if (!user) return alert("Invalid credentials");
 
     setCurrentUser(user);
 
-    // Role-based navigation
-    if (user.role === "HR") {
-      setPage("hr");
-    } else if (user.role === "EMPLOYEE") {
-      setPage("employee");
-    }
+    if (user.role === "HR") setPage("hr");
+    else setPage("employee");
   };
 
   // LOGOUT
@@ -66,13 +58,12 @@ function App() {
       )}
 
       {page === "hr" && currentUser?.role === "HR" && (
-      <HRDashboard
-        employees={employees}
-        onAddEmployee={handleAddEmployee}
-        onLogout={handleLogout}
-      />
+        <HRDashboard
+          employees={employees}
+          onAddEmployee={handleAddEmployee}
+          onLogout={handleLogout}
+        />
       )}
-
 
       {page === "employee" && currentUser?.role === "EMPLOYEE" && (
         <EmployeeDashboard onLogout={handleLogout} />

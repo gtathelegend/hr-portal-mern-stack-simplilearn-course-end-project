@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Vedaang Sharma",
+    "email": "vedaangsharma2006@gmail.com",
+    "department": "Engineering"
+  },
+  {
+    "id": 2,
+    "name": "Nidhi Sharma",
+    "email": "nidhi.sharma@gmail.com",
+    "department": "Science"
+  }
+]
