@@ -11,15 +11,16 @@ function Login({ onLogin, goToSignup }) {
 
   return (
     <div className="container d-flex justify-content-center align-items-center vh-100">
-      <div className="card p-4 shadow" style={{ width: "350px" }}>
-        <h3 className="text-center mb-3">Login</h3>
+      <div className="card p-4 shadow-lg" style={{ width: "380px" }}>
+        <h3 className="text-center mb-4">HR Portal Login</h3>
 
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label className="form-label">Username</label>
+            <label className="form-label fw-semibold">Username</label>
             <input
               type="text"
               className="form-control"
+              placeholder="Enter username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
@@ -27,10 +28,11 @@ function Login({ onLogin, goToSignup }) {
           </div>
 
           <div className="mb-3">
-            <label className="form-label">Password</label>
+            <label className="form-label fw-semibold">Password</label>
             <input
               type="password"
               className="form-control"
+              placeholder="Enter password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
