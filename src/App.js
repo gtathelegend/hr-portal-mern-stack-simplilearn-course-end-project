@@ -9,6 +9,18 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [page, setPage] = useState("login");
 
+// EMPLOYEE STATE
+  const [employees, setEmployees] = useState([
+    { id: 1, name: "John Doe", email: "john@company.com", department: "IT" },
+    { id: 2, name: "Jane Smith", email: "jane@company.com", department: "Finance" }
+  ]);
+
+  // ADD EMPLOYEE FUNCTION
+  const handleAddEmployee = (newEmp) => {
+    setEmployees([...employees, newEmp]);
+  };
+
+
   // REGISTER NEW USER
   const handleSignup = (newUser) => {
     setUsers([...users, newUser]);
@@ -54,8 +66,13 @@ function App() {
       )}
 
       {page === "hr" && currentUser?.role === "HR" && (
-        <HRDashboard onLogout={handleLogout} />
+      <HRDashboard
+        employees={employees}
+        onAddEmployee={handleAddEmployee}
+        onLogout={handleLogout}
+      />
       )}
+
 
       {page === "employee" && currentUser?.role === "EMPLOYEE" && (
         <EmployeeDashboard onLogout={handleLogout} />
