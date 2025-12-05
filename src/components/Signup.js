@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 
 function Signup({ onSignup, goToLogin }) {
-  const [fullName, setFullName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [department, setDepartment] = useState("");
   const [role, setRole] = useState("EMPLOYEE");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const newUser = {
-      fullName,
+      name,
       email,
       username,
       password,
-      role,
+      department,
+      role
     };
 
     onSignup(newUser);
@@ -27,54 +29,73 @@ function Signup({ onSignup, goToLogin }) {
         <h3 className="text-center mb-4">Employee Registration</h3>
 
         <form onSubmit={handleSubmit}>
+          
+          {/* NAME */}
           <div className="mb-3">
             <label className="form-label fw-semibold">Full Name</label>
             <input
               type="text"
               className="form-control"
               placeholder="Enter full name"
-              value={fullName}
-              onChange={(e) => setFullName(e.target.value)}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               required
             />
           </div>
 
+          {/* EMAIL */}
           <div className="mb-3">
             <label className="form-label fw-semibold">Email</label>
             <input
               type="email"
               className="form-control"
-              placeholder="Enter email"
+              placeholder="Enter email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
 
+          {/* DEPARTMENT (NEW FIELD) */}
+          <div className="mb-3">
+            <label className="form-label fw-semibold">Department</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="e.g. IT, Finance, HR"
+              value={department}
+              onChange={(e) => setDepartment(e.target.value)}
+              required
+            />
+          </div>
+
+          {/* USERNAME */}
           <div className="mb-3">
             <label className="form-label fw-semibold">Create Username</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Choose username"
+              placeholder="Choose a username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               required
             />
           </div>
 
+          {/* PASSWORD */}
           <div className="mb-3">
             <label className="form-label fw-semibold">Password</label>
             <input
               type="password"
               className="form-control"
-              placeholder="Choose password"
+              placeholder="Choose a password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
           </div>
 
+          {/* ROLE SELECTION */}
           <div className="mb-3">
             <label className="form-label fw-semibold">Select Role</label>
             <select

@@ -1,26 +1,22 @@
 import React from "react";
+import ApplyLeave from "./ApplyLeave";
+import MyLeaves from "./MyLeaves";
 
-function EmployeeDashboard({ onLogout }) {
+function EmployeeDashboard({ currentUser, leaves, onApplyLeave, onLogout }) {
+  const employeeName = currentUser?.name;
+
   return (
     <div className="container mt-4">
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary rounded">
-        <div className="container-fluid">
-          <a className="navbar-brand fw-bold">Employee Dashboard</a>
-
-          <button className="btn btn-light btn-sm" onClick={onLogout}>
-            Logout
-          </button>
-        </div>
+      <nav className="navbar navbar-dark bg-primary rounded p-2">
+        <span className="navbar-brand">Employee Dashboard</span>
+        <button className="btn btn-light btn-sm" onClick={onLogout}>
+          Logout
+        </button>
       </nav>
 
-      <h3 className="mt-4">Welcome, Employee</h3>
+      <ApplyLeave employeeName={employeeName} onApplyLeave={onApplyLeave} />
 
-      <div className="card shadow mt-3 p-3">
-        <h5>Your Profile</h5>
-        <p><strong>Name:</strong> John Doe</p>
-        <p><strong>Email:</strong> john@company.com</p>
-        <p><strong>Department:</strong> IT</p>
-      </div>
+      <MyLeaves employeeName={employeeName} leaves={leaves} />
     </div>
   );
 }
